@@ -35,6 +35,14 @@ def test_cli_trim_and_info(clip, tmp_path, capsys):
     assert main(["trim", str(tmp_path / "missing.mp4"), "--start", "0", "--end", "1"]) == 2
 
 
+def test_global_options_accepted_after_the_tool():
+    p = build_parser()
+    a = p.parse_args(["trim", "x.mp4", "--start", "0", "--end", "1", "--out-dir", "o", "--quality", "small"])
+    assert a.out_dir == "o" and a.quality == "small"
+    a = p.parse_args(["--out-dir", "before", "trim", "x.mp4", "--start", "0", "--end", "1"])
+    assert a.out_dir == "before" and a.quality == "high"
+
+
 @needs_ffmpeg
 def test_cli_cut_ranges(clip, tmp_path):
     rc = main(["--out-dir", str(tmp_path), "cut", clip, "--range", "0-0.5", "--range", "1-1.5"])

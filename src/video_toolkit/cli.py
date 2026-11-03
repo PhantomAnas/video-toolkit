@@ -30,9 +30,14 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--quality", choices=list(ops.QUALITY_CRF), default="high")
     p.add_argument("--check", action="store_true", help="report whether FFmpeg was found and exit")
     sub = p.add_subparsers(dest="tool")
+    # The same options are accepted after the tool name too (SUPPRESS keeps the
+    # subcommand from overwriting a value given before it).
+    common = argparse.ArgumentParser(add_help=False)
+    common.add_argument("--out-dir", default=argparse.SUPPRESS)
+    common.add_argument("--quality", choices=list(ops.QUALITY_CRF), default=argparse.SUPPRESS)
 
     def tool(name: str, help_: str, inputs: int = 1):
-        sp = sub.add_parser(name, help=help_)
+        sp = sub.add_parser(name, help=help_, parents=[common])
         sp.add_argument("input", nargs="+" if inputs > 1 else None, help="input file(s)")
         return sp
 
