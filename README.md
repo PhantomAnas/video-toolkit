@@ -43,6 +43,8 @@ pip install -e .
 video-toolkit
 ```
 
+Or skip the install and run `python launcher.py` from the checkout (that Python needs `pip install PySide6 platformdirs`).
+
 ## Use
 
 1. **Open video** (or drop a file anywhere in the window).
