@@ -45,7 +45,7 @@ pip install -e .
 video-toolkit
 ```
 
-Or skip the install and run `python launcher.py` from the checkout (that Python needs `pip install PySide6 platformdirs`).
+Or skip the install and run `python launcher.py` from the checkout (that Python needs `pip install -r requirements.txt`).
 
 ## Use
 

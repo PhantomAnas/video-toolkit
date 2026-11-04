@@ -1,0 +1,8 @@
+# Runtime dependencies (same as pyproject.toml):  pip install -r requirements.txt
+# FFmpeg itself is not a Python package: install it separately and keep it on PATH.
+PySide6>=6.6
+platformdirs>=3
+
+# Development (tests, exe build)
+pytest>=8
+pyinstaller>=6
