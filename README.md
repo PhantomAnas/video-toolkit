@@ -1,5 +1,7 @@
 # Video Toolkit
 
+**Free, open-source FFmpeg GUI for Windows and Linux (Python, PySide6): trim, cut, join, compress, convert, resize, crop, rotate, speed up, reverse, extract audio, make GIFs and contact sheets, with a job queue and a CLI.**
+
 The everyday video jobs, done right, in one window: trim and cut, join, speed, reverse, add or strip audio, volume and fades, compress to a size, convert and resize, rotate, crop, loop and boomerang, save frames, export frames, make GIFs, overlay or replace a region, and contact sheets. Every job is a clean FFmpeg command you can see in the log, run on a worker thread with real progress, and queued so you can line up a batch.
 
 ![Video Toolkit window](docs/screenshot.png)
